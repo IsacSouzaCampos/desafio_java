@@ -67,6 +67,7 @@ public class Main {
             return 1;
         }
 
+        // Seguindo a fórmula (Fn = Fn-1 + Fn-2)
         return recursiveFibonacci(num - 1) + recursiveFibonacci(num - 2);
     }
 
@@ -81,6 +82,8 @@ public class Main {
         int i, result = 0;
         for(i = 3; i < position + 1; i++) {
             result = prev_1 + prev_2;
+
+            // Mantém o registro de n-1 e n-2 atualizados
             prev_2 = prev_1;
             prev_1 = result;
         }

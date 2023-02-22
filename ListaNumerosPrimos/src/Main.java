@@ -74,10 +74,15 @@ public class Main {
         list.add(2);
 
         boolean isPrime;
+        
+        // Passa por cada um dos números de 2 em 2, pois apenas 2 é par e primo, para checar se são primos
         for (int i = 3; i < num + 1; i += 2) {
             isPrime = true;
 
+            // Feita divisão por cada valor até a raíz quadrado do número atual. Só é preciso ir até a raíz quadrada
+            // pois não há como os dois valores que compõe um número composto serem maiores do que sua raíz quadrada
             for (int j = 2; j <= Math.pow(i, 0.5); j++) {
+                // Se alguma das divisões tiver resto 0 (se for exata), o número testado não é primo
                 if (i % j == 0) {
                     isPrime = false;
                     break;
@@ -101,6 +106,7 @@ public class Main {
 
         boolean isPrime = true;
 
+        // As mesmas lógicas usadas no método linear valem aqui para o recursivo
         for (int j = 2; j <= Math.pow(num, 0.5); j++) {
             if (num % j == 0) {
                 isPrime = false;
