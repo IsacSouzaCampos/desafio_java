@@ -46,4 +46,4 @@ O desafio é dividido em duas etapas. Na primeira devem ser respondidas questõe
     + Criar uma função recursiva que resolva _p_
     + Criar uma função linear que resolva _p_
     
-> Resposta: Para o desafio da Lista de Números Primos foi criado o projeto de nome _ListaNumerosPrimos_ visto no repositório. Na Main deste projeto encontram-se as implementações da versão linear e recursiva do desafio proposto.
+> Resposta: Para o desafio da Lista de Números Primos foi criado o projeto de nome _ListaNumerosPrimos_ visto no repositório. Na Main deste projeto encontram-se as implementações da versão linear e recursiva do desafio proposto (a ser escolhida pelo usuário).
