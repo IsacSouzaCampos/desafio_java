@@ -28,3 +28,22 @@ O desafio é dividido em duas etapas. Na primeira devem ser respondidas questõe
   > + Através do uso interno desse tipo de ferramenta. 
   > + Ajudando no desenvolvimento do mesmo através do fornecimento de recursos como, por exemplo, desenvolvedores. 
   > + Lançando suas próprias ferramentas e formando comunidades para os projetos, ajudando a democratizar determinadas áreas da tecnologia.
+
+
+## Etapa Prática
+
+1. Fibonacci
+    
+    + Criar uma função em sua linguagem preferida. A função deve receber um numero N >= 0 (deve validar o input para a função), e retornar o valor correspondente desse número na sequencia fibonnaci. EX. fib(0) =0; fib(1) = 1; fib(2) = 1; fib(3) = 2; fib(5) = 5; fib(6) = 8.
+    + Criar uma função recursiva que resolva _Fibonacci_
+    + Criar uma função linear que resolva _Fibonacci_
+
+> Resposta: Para esse desafio foi criado o projeto de nome _Fibonacci_ visto no repositório. Na Main do projeto estão implementadas as abordagens da sequência de Fibonacci tanto na versão linear quanto na recursiva (a ser escolhida pelo usuário).
+
+2. Números Primos
+    
+    + Criar uma função em sua linguagem preferida. A função deve receber um numero N > 1 (validar o input), e retornar todos os números primos até o numero N. EX. p(2) = [2]; p(3) = [2, 3]; p(10) = [2, 3, 5, 7];
+    + Criar uma função recursiva que resolva _p_
+    + Criar uma função linear que resolva _p_
+    
+> Resposta: Para o desafio da Lista de Números Primos foi criado o projeto de nome _ListaNumerosPrimos_ visto no repositório. Na Main deste projeto encontram-se as implementações da versão linear e recursiva do desafio proposto.
