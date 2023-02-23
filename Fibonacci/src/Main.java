@@ -78,16 +78,11 @@ public class Main {
             return 1;
         }
 
-        int prev_1 = 1, prev_2 = 1;
-        int i, result = 0;
-        for(i = 3; i < position + 1; i++) {
-            result = prev_1 + prev_2;
+        double sqrt5 = Math.sqrt(5);
+        double v1    = Math.pow((1 + sqrt5) / 2, position);
+        double v2    = Math.pow((1 - sqrt5) / 2, position);
+        double result = (v1 - v2) / sqrt5;
 
-            // Mantém o registro de n-1 e n-2 atualizados
-            prev_2 = prev_1;
-            prev_1 = result;
-        }
-
-        return result;
+        return (int) result;
     }
 }
