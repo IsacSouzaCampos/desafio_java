@@ -1,3 +1,5 @@
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -20,7 +22,7 @@ public class Main {
                 int result;
                 if(type == 1) {
                     System.out.println("\nFibonacci Recursivo");
-                    result = recursiveFibonacci(position);
+                    result = recursiveFibonacci(position).get(1);
                 } else {
                     System.out.println("\nFibonacci Linear");
                     result = linearFibonacci(position);
@@ -60,15 +62,23 @@ public class Main {
         return type;
     }
 
-    public static int recursiveFibonacci(int num) {
-        if(num == 0) {
-            return 0;
-        } else if(num == 1 || num == 2) {
-            return 1;
+    public static List<Integer> recursiveFibonacci(int position) {
+        List<Integer> list = Arrays.asList(new Integer[2]);
+        if(position == 0) {
+            list.set(1, 0);
+            return list;
+        } else if(position == 1) {
+            list.set(0, 0);
+            list.set(1, 1);
+            return list;
         }
 
-        // Seguindo a fórmula (Fn = Fn-1 + Fn-2)
-        return recursiveFibonacci(num - 1) + recursiveFibonacci(num - 2);
+        list = recursiveFibonacci(position - 1);
+        int temp = list.get(0);
+        list.set(0, list.get(1));
+        list.set(1, temp + list.get(1));
+
+        return list;
     }
 
     public static int linearFibonacci(int position) {
