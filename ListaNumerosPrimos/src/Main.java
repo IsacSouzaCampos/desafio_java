@@ -66,22 +66,19 @@ public class Main {
 
     public static List<Integer> listPrimeNumbersLinear(int num) {
         List<Integer> list = new ArrayList<>();
+        boolean isPrime;
 
-        if (num < 2) {
+        if(num < 2) {
             return list;
         }
-
-        list.add(2);
-
-        boolean isPrime;
         
         // Passa por cada um dos números de 2 em 2, pois apenas 2 é par e primo, para checar se são primos
-        for (int i = 3; i < num + 1; i += 2) {
+        for(int i = 2; i < num + 1; i++) {
             isPrime = true;
 
             // Feita divisão por cada valor até a raíz quadrado do número atual. Só é preciso ir até a raíz quadrada
             // pois não há como os dois valores que compõe um número composto serem maiores do que sua raíz quadrada
-            for (int j = 2; j <= Math.pow(i, 0.5); j++) {
+            for (Integer j : list) {
                 // Se alguma das divisões tiver resto 0 (se for exata), o número testado não é primo
                 if (i % j == 0) {
                     isPrime = false;
@@ -98,27 +95,34 @@ public class Main {
     }
 
     public static List<Integer> listPrimeNumbersRecursive(int num) {
-        List<Integer> list = new ArrayList<>();
-
-        if (num < 2) {
-            return list;
+        if(num < 2) {
+            return new ArrayList<>();
         }
 
+        List<Integer> list = new ArrayList<>();
+        list.add(2);
+        return listPrimeNumbersRecursive(3, num, list);
+    }
+
+    public static List<Integer> listPrimeNumbersRecursive(int current, int max, List<Integer> list) {
         boolean isPrime = true;
 
         // As mesmas lógicas usadas no método linear valem aqui para o recursivo
-        for (int j = 2; j <= Math.pow(num, 0.5); j++) {
-            if (num % j == 0) {
+        for(Integer j : list) {
+            if(current % j == 0) {
                 isPrime = false;
                 break;
             }
         }
 
-        if (isPrime) {
-            list.add(num);
+        if(isPrime) {
+            list.add(current);
         }
 
-        list.addAll(listPrimeNumbersRecursive(num - 1));
-        return list;
+        if(current == max) {
+            return list;
+        }
+
+        return listPrimeNumbersRecursive(current + 1, max, list);
     }
 }
