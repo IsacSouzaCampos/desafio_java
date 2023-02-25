@@ -3,12 +3,16 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
-public class Main {
+public class NumerosPrimos {
+    int type;
+    List<Integer> list = new ArrayList<>();
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
+        NumerosPrimos numerosPrimos = new NumerosPrimos();
+
         System.out.println("*** Lista de Números Primos ***\n");
 
-        int type = getListPrimeNumbersType();
+        numerosPrimos.setListPrimeNumbersType();
 
         while(true) {
             try {
@@ -20,17 +24,16 @@ public class Main {
                     continue;
                 }
 
-                List<Integer> result;
-                if(type == 1) {
+                if(numerosPrimos.type == 1) {
                     System.out.println("\nListagem Recursiva");
-                    result = listPrimeNumbersRecursive(num);
+                    numerosPrimos.listPrimeNumbersRecursive(num);
                 } else {
                     System.out.println("\nListagem Linear");
-                    result = listPrimeNumbersLinear(num);
+                    numerosPrimos.listPrimeNumbersLinear(num);
                 }
 
-                Collections.sort(result);
-                System.out.println("A lista de primos até o número " + num + " é: " + result);
+                Collections.sort(numerosPrimos.list);
+                System.out.println("A lista de primos até o número " + num + " é: " + numerosPrimos.list);
                 break;
 
             } catch (Exception e) {
@@ -40,7 +43,7 @@ public class Main {
         }
     }
 
-    private static int getListPrimeNumbersType() {
+    protected void setListPrimeNumbersType() {
         Scanner in = new Scanner(System.in);
         int type;
 
@@ -61,16 +64,13 @@ public class Main {
                 in.nextLine();
             }
         }
-        return type;
+        this.type = type;
     }
 
-    public static List<Integer> listPrimeNumbersLinear(int num) {
-        List<Integer> list = new ArrayList<>();
+    public void listPrimeNumbersLinear(int num) {
         boolean isPrime;
 
-        if(num < 2) {
-            return list;
-        }
+        if(num < 2) { return; }
         
         // Passa por cada um dos números de 2 em 2, pois apenas 2 é par e primo, para checar se são primos
         for(int i = 2; i < num + 1; i++) {
@@ -78,7 +78,7 @@ public class Main {
 
             // Feita divisão por cada valor até a raíz quadrado do número atual. Só é preciso ir até a raíz quadrada
             // pois não há como os dois valores que compõe um número composto serem maiores do que sua raíz quadrada
-            for (Integer j : list) {
+            for (Integer j : this.list) {
                 // Se alguma das divisões tiver resto 0 (se for exata), o número testado não é primo
                 if (i % j == 0) {
                     isPrime = false;
@@ -87,28 +87,23 @@ public class Main {
             }
 
             if (isPrime) {
-                list.add(i);
+                this.list.add(i);
             }
         }
-
-        return list;
     }
 
-    public static List<Integer> listPrimeNumbersRecursive(int num) {
-        if(num < 2) {
-            return new ArrayList<>();
-        }
+    public void listPrimeNumbersRecursive(int num) {
+        if(num < 2) { return; }
 
-        List<Integer> list = new ArrayList<>();
-        list.add(2);
-        return listPrimeNumbersRecursive(3, num, list);
+        this.list.add(2);
+        this.listPrimeNumbersRecursive(3, num);
     }
 
-    public static List<Integer> listPrimeNumbersRecursive(int current, int max, List<Integer> list) {
+    public void listPrimeNumbersRecursive(int current, int max) {
         boolean isPrime = true;
 
         // As mesmas lógicas usadas no método linear valem aqui para o recursivo
-        for(Integer j : list) {
+        for(Integer j : this.list) {
             if(current % j == 0) {
                 isPrime = false;
                 break;
@@ -120,9 +115,9 @@ public class Main {
         }
 
         if(current == max) {
-            return list;
+            return;
         }
 
-        return listPrimeNumbersRecursive(current + 1, max, list);
+        this.listPrimeNumbersRecursive(current + 1, max);
     }
 }
