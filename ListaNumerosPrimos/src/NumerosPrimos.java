@@ -12,7 +12,7 @@ public class NumerosPrimos {
 
         System.out.println("*** Lista de Números Primos ***\n");
 
-        numerosPrimos.setListPrimeNumbersType();
+        numerosPrimos.chooseType();
 
         while(true) {
             try {
@@ -26,10 +26,10 @@ public class NumerosPrimos {
 
                 if(numerosPrimos.type == 1) {
                     System.out.println("\nListagem Recursiva");
-                    numerosPrimos.listPrimeNumbersRecursive(num);
+                    numerosPrimos.getListRecursive(num);
                 } else {
                     System.out.println("\nListagem Linear");
-                    numerosPrimos.listPrimeNumbersLinear(num);
+                    numerosPrimos.getListLinear(num);
                 }
 
                 Collections.sort(numerosPrimos.list);
@@ -43,7 +43,7 @@ public class NumerosPrimos {
         }
     }
 
-    protected void setListPrimeNumbersType() {
+    protected void chooseType() {
         Scanner in = new Scanner(System.in);
         int type;
 
@@ -67,7 +67,7 @@ public class NumerosPrimos {
         this.type = type;
     }
 
-    public void listPrimeNumbersLinear(int num) {
+    public void getListLinear(int num) {
         boolean isPrime;
 
         if(num < 2) { return; }
@@ -92,14 +92,14 @@ public class NumerosPrimos {
         }
     }
 
-    public void listPrimeNumbersRecursive(int num) {
+    public void getListRecursive(int num) {
         if(num < 2) { return; }
 
         this.list.add(2);
-        this.listPrimeNumbersRecursive(3, num);
+        this.getListRecursive(3, num);
     }
 
-    public void listPrimeNumbersRecursive(int current, int max) {
+    public void getListRecursive(int current, int max) {
         boolean isPrime = true;
 
         // As mesmas lógicas usadas no método linear valem aqui para o recursivo
@@ -118,6 +118,6 @@ public class NumerosPrimos {
             return;
         }
 
-        this.listPrimeNumbersRecursive(current + 1, max);
+        this.getListRecursive(current + 1, max);
     }
 }
