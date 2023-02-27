@@ -46,7 +46,7 @@ O desafio é dividido em duas etapas. Na primeira devem ser respondidas questõe
 > No método linear foi utilizada uma fórmula para o cálculo do valor na posição escolhida pelo usuário. Essa abordagem garante que o desempenho do algoritmo será constante independente da posição escolhida e não utiliza um _loop for_, que poderia gerar uma queda de desempenho considerável para posições maiores.
 
 
-> Já o método recursivo precisa necessariamente passar por todas as posições até que se chega à escolhida pelo usuário. Nesse caso o método retorna uma contendo duas posições com os valores atualizados dos dois últimos valores de Fibonacci anteriores ao atual. Isso permite que não se use a recursividade duas vezes (uma para _n-1_ e outra pra _n-2_).
+> Já o método recursivo precisa necessariamente passar por todas as posições até que se chegue à escolhida pelo usuário. Nesse caso o método retorna uma lista contendo duas posições com os valores atualizados dos dois últimos valores de Fibonacci anteriores ao atual. Isso permite que não se use a recursividade duas vezes (uma para _n-1_ e outra pra _n-2_), melhorando o desempenho do código.
 
 
 2. Números Primos
@@ -55,7 +55,7 @@ O desafio é dividido em duas etapas. Na primeira devem ser respondidas questõe
     + Criar uma função recursiva que resolva _p_
     + Criar uma função linear que resolva _p_
     
-> Resposta: Para o desafio da Lista de Números Primos foi criado o projeto de nome _ListaNumerosPrimos_ visto no repositório. Para ambas as abordagens propostas no desafio foi utilizado o algoritmo do _Crivo de Eratóstenes_. O crivo consiste em utilizar os números primos já encontrados e adicionados à lista para conferir se o número atual também é primo. A estratégia funciona pois tira dos testes valores que não são primos, pois esses valores são resultado da multiplicação de outros dois anteriores a ele, logo, se o valor atual testado fosse divisível por um dos não primos desconsiderados, ele seria necessariamente divisível pelos valores compostos dele também.
+> Resposta: Para o desafio da Lista de Números Primos foi criado o projeto de nome _ListaNumerosPrimos_ visto no repositório. Para ambas as abordagens propostas no desafio foi utilizado o algoritmo do _Crivo de Eratóstenes_. O crivo consiste em utilizar os números primos já encontrados e adicionados à lista para conferir se o número atual também é primo. A estratégia funciona pois tira dos testes valores que não são primos, pois esses valores são resultado da multiplicação de outros dois anteriores a ele, logo, se o valor atual testado fosse divisível por um dos não primos desconsiderados, ele seria necessariamente divisível pelos valores compostos dele também, tornando desnecessário esse teste.
 
 
 > Para o método linear o _Crivo de Eratóstenes_ foi implementado com dois _loops for_ aninhados. O mais externo contendo cada um dos inteiros existentes até o valor limite definido pelo usuário e o mais interno fazendo os testes com os valores contidos na lista até então.
